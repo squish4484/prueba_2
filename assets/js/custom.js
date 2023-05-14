@@ -96,4 +96,6 @@ $(document).ready(function(){
 			$(this).parents(".single-cart-list").fadeOut();
 		});
 
+	//5. Login
+
 });

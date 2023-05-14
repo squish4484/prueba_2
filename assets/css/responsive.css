@@ -12,7 +12,8 @@
 	.welcome-hero-txt h2,.welcome-hero-txt h3 {font-size: 40px;}
 	.welcome-hero-txt h4 {font-size: 28px;}
 
-	.single-populer-products {min-height: 320px;}
+	.single-category-products {min-height: 320px;}
+	.single-subcategory-products {min-height: 320px;}
 
 }/*max-width:1199px*/
 
@@ -38,7 +39,8 @@
 @media screen and (max-width:991px){
 	.main-menu .nav li span.badge {top: 20px;right:-5px;}
 	.single-feature,.single-blog,.single-new-arrival {max-width: 270px;margin: 30px auto;}
-	.single-populer-products {max-width: 350px;margin: 30px auto;min-height: auto;padding-bottom: 30px;}
+	.single-category-products {max-width: 350px;margin: 30px auto;min-height: auto;padding-bottom: 30px;}
+	.single-subcategory-products {max-width: 350px;margin: 30px auto;min-height: auto;padding-bottom: 30px;}
 
 }/*max-width:991px*/
 
