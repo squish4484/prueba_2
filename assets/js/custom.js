@@ -96,6 +96,41 @@ $(document).ready(function(){
 			$(this).parents(".single-cart-list").fadeOut();
 		});
 
-	//5. Login
+	// 5.-Pagina Imagen Carrusel
+
+	// Código para el carrusel de fotos
+		const carousel = document.getElementById('carousel');
+		let currentImageIndex = 0;
+		const images = carousel.getElementsByTagName('img');
+		
+		function showImage(index) {
+		for (let i = 0; i < images.length; i++) {
+			images[i].style.display = 'none';
+		}
+		
+		images[index].style.display = 'block';
+		}
+		
+		function nextImage() {
+		currentImageIndex++;
+		if (currentImageIndex >= images.length) {
+			currentImageIndex = 0;
+		}
+		
+		showImage(currentImageIndex);
+		}
+		
+		function previousImage() {
+		currentImageIndex--;
+		if (currentImageIndex < 0) {
+			currentImageIndex = images.length - 1;
+		}
+		
+		showImage(currentImageIndex);
+		}
+		
+		showImage(currentImageIndex);
+
+	
 
 });
