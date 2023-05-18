@@ -605,10 +605,10 @@
 								</div><!--/.hm-foot-menu-->
 							</div><!--/.hm-footer-widget-->
 						</div><!--/.col-->
-						<div class=" col-md-3 col-sm-6  col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="hm-footer-widget">
 								<div class="hm-foot-title">
-									<h4>Boletin Informativo</h4>
+									<h4>Boletín Informativo</h4>
 								</div><!--/.hm-foot-title-->
 								<div class="hm-foot-para">
 									<p>
@@ -617,14 +617,48 @@
 								</div><!--/.hm-foot-para-->
 								<div class="hm-foot-email">
 									<div class="foot-email-box">
-										<input type="text" class="form-control" placeholder="Ingrese el correo electrónico aquí....">
+										<input type="text" class="form-control" id="email-input" placeholder="Ingrese el correo electrónico aquí....">
 									</div><!--/.foot-email-box-->
 									<div class="foot-email-subscribe">
-										<span><i class="fa fa-location-arrow"></i></span>
+										<span onclick="subscribeEmail()"><i class="fa fa-location-arrow"></i></span>
 									</div><!--/.foot-email-icon-->
 								</div><!--/.hm-foot-email-->
 							</div><!--/.hm-footer-widget-->
 						</div><!--/.col-->
+						
+						<script>
+							function subscribeEmail() {
+								var emailInput = document.getElementById('email-input');
+								var email = emailInput.value;
+						
+								// Validar el correo utilizando la API de Email Verification
+								var myHeaders = new Headers();
+								myHeaders.append("apikey", "4BhWTy9p2QvUdi1SNXCKtMJ9MF8rN6Zi");
+						
+								var requestOptions = {
+									method: 'GET',
+									redirect: 'follow',
+									headers: myHeaders
+								};
+						
+								fetch("https://api.apilayer.com/email_verification/check?email=" + email, requestOptions)
+									.then(response => response.json())
+									.then(result => {
+										// Verificar el resultado de la API
+										if (result.format_valid && result.smtp_check && result.score >= 0.5) {
+											// El correo es válido
+											alert("Correo válido, usted fue suscrito de forma exitosa");
+											emailInput.value = ""; // Limpiar la casilla de correo
+										} else {
+											// El correo no es válido
+											alert("Correo inválido");
+										}
+									})
+									.catch(error => console.log('error', error));
+							}
+						</script>
+						
+						
 					</div><!--/.row-->
 				</div><!--/.hm-footer-details-->
 
